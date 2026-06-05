@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>스타일-업 마케팅 아카데미 — 웹스토리 미리보기</title>
+  <!-- AMP 런타임 없이 디자인을 확인하는 정적 미리보기. 실제 인터랙티브 스토리는 style-up-academy.html -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1f1b16;--ink2:#14110d;--cream:#f7f1e6;--cream2:#f0e7d6;--gold:#b89b72;--gold-l:#d8c39a;--coral:#e0573f;--muted:#9a8f7c;}
+    *{box-sizing:border-box;}
+    body{margin:0;background:#0f0d0a;color:var(--cream);font-family:'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;}
+    .head{text-align:center;padding:46px 20px 6px;}
+    .head .k{letter-spacing:.34em;text-transform:uppercase;font-size:11px;color:var(--gold);}
+    .head h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:34px;margin:12px 0 6px;}
+    .head p{color:rgba(247,241,230,.55);font-weight:300;font-size:14px;margin:0;}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px;max-width:1240px;margin:0 auto;padding:40px 24px 70px;justify-items:center;}
+    .card{display:flex;flex-direction:column;align-items:center;}
+    .phone{width:284px;height:505px;border-radius:34px;padding:9px;background:linear-gradient(160deg,#2a2521,#100d0b);box-shadow:0 24px 60px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.05);}
+    .screen{position:relative;width:100%;height:100%;border-radius:26px;overflow:hidden;display:flex;}
+    .screen::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:86px;height:19px;background:#100d0b;border-radius:0 0 13px 13px;z-index:9;}
+    .ink{background:linear-gradient(158deg,#2a241d,#15120d);}
+    .cream{background:radial-gradient(130% 80% at 82% -10%,#fdfaf3,#f5ecdb 55%,#efe5d2);}
+    .pad{position:relative;z-index:2;width:100%;padding:34px 24px;display:flex;flex-direction:column;}
+    .bottom{justify-content:flex-end;}
+    .center{justify-content:center;}
+    .mid{justify-content:center;align-items:center;text-align:center;}
+    .oi{color:var(--cream);} .oc{color:var(--ink);}
+    .bb{position:absolute;top:18px;left:24px;font-size:10px;color:var(--muted);} .bb b{color:var(--gold);}
+    .k{letter-spacing:.3em;text-transform:uppercase;font-size:10px;font-weight:600;color:var(--gold);margin-bottom:12px;}
+    .num{font-family:'Noto Serif KR',serif;font-weight:900;font-size:15px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+    .serif{font-family:'Noto Serif KR',serif;}
+    .display{font-family:'Noto Serif KR',serif;font-weight:900;font-size:36px;line-height:1.16;}
+    .display .hl{color:var(--gold-l);}
+    .title{font-family:'Noto Serif KR',serif;font-weight:900;font-size:25px;line-height:1.28;}
+    .title.lg{font-size:30px;}
+    .lead{font-size:12.5px;font-weight:300;line-height:1.7;margin-top:14px;color:rgba(247,241,230,.86);}
+    .lead.d{color:rgba(31,27,22,.8);}
+    .rule{width:42px;height:3px;background:var(--gold);margin:16px 0;}
+    .sub{font-size:13px;font-weight:300;margin-top:12px;}
+    .meta{font-size:12px;font-weight:300;color:rgba(247,241,230,.7);line-height:1.8;} .meta b{color:var(--cream);font-weight:600;}
+    .quote{font-family:'Noto Serif KR',serif;font-weight:600;font-size:21px;line-height:1.45;}
+    .mark{color:var(--coral);font-size:46px;line-height:.2;display:block;height:22px;}
+    .step{display:flex;align-items:center;gap:11px;width:100%;padding:9px 0;border-bottom:1px solid rgba(31,27,22,.12);}
+    .s-no{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--gold-l);font-family:'Noto Serif KR',serif;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
+    .s-t{font-size:13px;font-weight:700;color:var(--ink);} .s-d{font-size:10px;color:var(--muted);}
+    .plan{width:100%;border:1px solid rgba(247,241,230,.16);border-radius:12px;padding:12px 14px;margin-bottom:9px;background:rgba(247,241,230,.04);}
+    .plan.feat{border-color:var(--gold);background:rgba(184,155,114,.14);}
+    .p-top{display:flex;justify-content:space-between;align-items:baseline;}
+    .p-name{font-size:15px;font-weight:700;color:var(--cream);}
+    .p-price{font-family:'Noto Serif KR',serif;font-weight:700;font-size:15px;color:var(--gold-l);}
+    .p-desc{font-size:11px;font-weight:300;margin-top:4px;color:rgba(247,241,230,.7);}
+    .tag{display:inline-block;font-size:9px;letter-spacing:.1em;color:var(--gold-l);border:1px solid rgba(216,195,154,.5);border-radius:999px;padding:2px 7px;margin-bottom:5px;}
+    .searchbar{width:100%;background:#2b2620;border-radius:999px;padding:11px 16px;margin-top:6px;display:flex;align-items:center;gap:10px;color:rgba(247,241,230,.92);font-size:13px;box-shadow:0 10px 24px rgba(0,0,0,.3);}
+    .searchbar .ic{color:var(--gold);}
+    .kw{display:inline-block;font-size:11px;color:var(--ink);background:var(--cream2);border-radius:999px;padding:5px 11px;margin:5px 5px 0 0;} .kw b{color:var(--coral);}
+    .eff{width:100%;margin-bottom:13px;} .eff h3{font-size:13px;font-weight:700;color:var(--coral);margin:0 0 5px;} .eff p{font-size:11.5px;font-weight:300;color:#5f574a;margin:0;line-height:1.55;}
+    .cta{display:inline-block;padding:11px 22px;border-radius:999px;background:var(--gold);color:var(--ink2);font-weight:700;font-size:13px;margin:6px 6px 0 0;}
+    .cta.ghost{background:transparent;color:var(--cream);border:1px solid rgba(247,241,230,.5);}
+    /* interactive mock */
+    .iq{width:100%;}
+    .iq .prompt{background:rgba(0,0,0,.35);border-radius:12px;padding:11px 14px;font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;text-align:left;}
+    .opt{display:flex;justify-content:space-between;align-items:center;background:rgba(247,241,230,.95);color:var(--ink);border-radius:11px;padding:11px 14px;margin-bottom:7px;font-size:13px;font-weight:500;}
+    .opt .pct{font-weight:700;color:var(--coral);}
+    .opt.correct{box-shadow:inset 0 0 0 2px #2ecc71;} .opt.correct .pct{color:#2ecc71;}
+    .opt.sel{box-shadow:inset 0 0 0 2px var(--coral);}
+    .badge-int{display:inline-block;background:var(--coral);color:#fff;font-size:9px;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-bottom:10px;}
+    .swipe{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:11px;color:rgba(31,27,22,.55);z-index:4;}
+    .swipe.oni{color:rgba(247,241,230,.6);}
+    .cap{margin-top:13px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,241,230,.45);text-align:center;}
+    .cap .i{color:var(--coral);}
+    .foot{text-align:center;color:rgba(247,241,230,.4);font-size:12px;padding:0 20px 56px;line-height:1.9;} .foot code{color:var(--gold);font-family:monospace;}
+  </style>
+</head>
+<body>
+  <div class="head">
+    <div class="k">신화클라우드 · Interactive Web Story</div>
+    <h1 class="serif">스타일-업 마케팅 아카데미</h1>
+    <p>헤어디자이너를 '1인 마케터'로 — 14페이지 미리보기 (★ = 인터랙티브)</p>
+  </div>
+
+  <div class="gallery">
+
+    <!-- 1 cover -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad bottom oi">
+      <div class="k">신화클라우드 · 배우고 성장하세요</div>
+      <div class="display">헤어디자이너를<br><span class="hl">'1인 마케터'</span>로</div>
+      <div class="sub" style="color:rgba(247,241,230,.85)">브랜드 가치를 높이는<br>디지털 마케팅 역량 강화 프로그램</div>
+      <div class="rule"></div>
+      <div class="meta"><b>신화클라우드</b> 교육 파트너 · 유웅종<br>010-8608-2989</div>
+    </div></div></div><div class="cap">01 · Cover</div></div>
+
+    <!-- 2 overview -->
+    <div class="card"><div class="phone"><div class="screen cream"><div class="pad bottom oc">
+      <div class="bb">신화클라우드 <b>|</b> 배우고 성장하세요</div>
+      <div class="k">제안 개요</div>
+      <div class="title">기술 전문가를 넘어,<br>스스로 고객을 부르는 사람</div>
+      <div class="rule"></div>
+      <div class="lead d">소중한 자산인 헤어디자이너 개개인을, 스스로 신규 고객을 유치하고 충성 고객을 관리하는 <b>'1인 마케터'</b>로 성장시킵니다. 개인의 성장과 매장 매출 증대를 동시에 실현합니다.</div>
+    </div></div></div><div class="cap">02 · 개요</div></div>
+
+    <!-- 3 sec1 -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad center oi">
+      <div class="num">01</div>
+      <div class="title lg">왜 "디자이너<br>마케팅 교육"이<br>지금 필요한가?</div>
+    </div></div></div><div class="cap">03 · Section 01</div></div>
+
+    <!-- 4 pain1 -->
+    <div class="card"><div class="phone"><div class="screen cream"><div class="pad bottom oc">
+      <div class="bb">신화클라우드 <b>|</b> 배우고 성장하세요</div>
+      <span class="mark">“</span>
+      <div class="quote">기술은 최고지만,<br>신규 고객 유치는<br>막막한 디자이너</div>
+      <div class="lead d">뛰어난 기술에도 자신의 가치를 알리고 고객을 모으는 데 막막함을 느낍니다. 이는 <b>매장 전체의 성장 정체</b>로 이어집니다.</div>
+    </div></div></div><div class="cap">04 · 고민 ①</div></div>
+
+    <!-- 5 pain2 -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad bottom oi">
+      <span class="mark">“</span>
+      <div class="quote" style="color:var(--cream)">SNS, 열심히는 하지만<br>예약으로 연결되지<br>않는 현실</div>
+      <div class="lead">사진·정보를 올리지만 실제 예약으로 이어지는 <b style="color:var(--gold-l)">'전략'이 부재</b>한 경우가 대부분입니다.</div>
+    </div></div></div><div class="cap">05 · 고민 ②</div></div>
+
+    <!-- 6 POLL -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad mid oi">
+      <span class="badge-int">★ Poll · 투표</span>
+      <div class="iq">
+        <div class="prompt">가장 공감되는 고민은?</div>
+        <div class="opt sel"><span>신규 고객 유치가 막막함</span><span class="pct">52%</span></div>
+        <div class="opt"><span>SNS가 예약으로 안 이어짐</span><span class="pct">34%</span></div>
+        <div class="opt"><span>나만의 강점을 모르겠음</span><span class="pct">14%</span></div>
+      </div>
+    </div></div></div><div class="cap"><span class="i">★</span> 06 · 투표</div></div>
+
+    <!-- 7 sec2 -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad center oi">
+      <div class="num">02</div>
+      <div class="k">교육 프로그램</div>
+      <div class="display" style="font-size:34px">스타일-업<br><span class="hl">Style-Up</span><br>마케팅 아카데미</div>
+    </div></div></div><div class="cap">07 · Section 02</div></div>
+
+    <!-- 8 targeting -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad center oi">
+      <div class="k">미용실 + 타겟팅</div>
+      <div class="title">고객이 <span style="color:var(--coral)">실제로 검색하는</span><br>그 순간을 잡습니다</div>
+      <div class="searchbar"><span class="ic">🔍</span><span>미용실 볼륨 매직</span></div>
+      <div style="margin-top:10px">
+        <span class="kw"><b>강남역</b> 레이어드컷</span><span class="kw">볼륨매직 <b>가격</b></span>
+        <span class="kw"><b>동네</b> 볼륨매직</span><span class="kw">볼륨매직 <b>잘하는</b> 곳</span>
+      </div>
+      <div class="lead">검색의 순간, <b style="color:var(--gold-l)">당신이 첫 번째로</b> 보이도록.</div>
+    </div></div></div><div class="cap">08 · 타겟팅</div></div>
+
+    <!-- 9 curriculum -->
+    <div class="card"><div class="phone"><div class="screen cream"><div class="pad center oc">
+      <div class="bb">신화클라우드 <b>|</b> 배우고 성장하세요</div>
+      <div class="k">5단계 커리큘럼</div>
+      <div class="title" style="margin-bottom:8px">실전형 성장 로드맵</div>
+      <div class="step"><div class="s-no">1</div><div><div class="s-t">나라는 브랜드 만들기</div><div class="s-d">전략 수립 · 강점 찾기</div></div></div>
+      <div class="step"><div class="s-no">2</div><div><div class="s-t">고객의 마음을 읽는 키워드</div><div class="s-d">시장 분석 · 검색어 발굴</div></div></div>
+      <div class="step"><div class="s-no">3</div><div><div class="s-t">시선을 사로잡는 콘텐츠</div><div class="s-d">콘텐츠 기획 · 스토리라인</div></div></div>
+      <div class="step"><div class="s-no">4</div><div><div class="s-t">네이버·인스타 실전 테크닉</div><div class="s-d">제작 · 플레이스 최적화</div></div></div>
+      <div class="step"><div class="s-no">5</div><div><div class="s-t">데이터로 성장하기</div><div class="s-d">성과 분석 · A/B 테스트</div></div></div>
+      <div class="swipe">↑ 5단계 상세 커리큘럼 보기</div>
+    </div></div></div><div class="cap"><span class="i">★</span> 09 · 커리큘럼+상세</div></div>
+
+    <!-- 10 QUIZ -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad mid oi">
+      <span class="badge-int">★ Quiz · 퀴즈</span>
+      <div class="iq">
+        <div class="prompt">'1인 마케터'의 출발점은?</div>
+        <div class="opt"><span>무작정 게시물 수 늘리기</span></div>
+        <div class="opt correct"><span>나만의 강점·타겟 고객 정의</span><span class="pct">✓</span></div>
+        <div class="opt"><span>광고비를 무조건 늘리기</span></div>
+        <div class="opt"><span>팔로워 구매하기</span></div>
+      </div>
+    </div></div></div><div class="cap"><span class="i">★</span> 10 · 퀴즈</div></div>
+
+    <!-- 11 sec3 -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad center oi">
+      <div class="num">03</div>
+      <div class="title lg">맞춤형 교육 플랜<br>및 투자 비용</div>
+      <div class="lead">현실 진단과 목표 협의 후, 대상에 맞춘 일대일 교육이 진행됩니다.</div>
+    </div></div></div><div class="cap">11 · Section 03</div></div>
+
+    <!-- 12 pricing -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad center oi">
+      <div class="k" style="align-self:center">투자 플랜</div>
+      <div class="plan"><div class="p-top"><span class="p-name">Basic</span><span class="p-price">38만원/월</span></div><div class="p-desc">입문 · 채널 기본 세팅 진단 · 주니어 디자이너</div></div>
+      <div class="plan feat"><span class="tag">추천</span><div class="p-top"><span class="p-name">Standard</span><span class="p-price">58만원/월</span></div><div class="p-desc">심화 · 기획 코칭·개인 프로모션 · 시니어</div></div>
+      <div class="plan"><div class="p-top"><span class="p-name">Premium</span><span class="p-price">130만원/월</span></div><div class="p-desc">1:1 브랜딩 · 분기 리포트+심층 컨설팅 · 원장/실장</div></div>
+      <div class="swipe oni">↑ 플랜별 상세 비교 보기</div>
+    </div></div></div><div class="cap"><span class="i">★</span> 12 · 가격+상세</div></div>
+
+    <!-- 13 effects -->
+    <div class="card"><div class="phone"><div class="screen cream"><div class="pad center oc">
+      <div class="bb">신화클라우드 <b>|</b> 배우고 성장하세요</div>
+      <div class="num" style="border-color:var(--ink);color:var(--ink)">04</div>
+      <div class="title" style="margin-bottom:16px">기대 효과</div>
+      <div class="eff"><h3>디자이너 개인</h3><p>개인 매출 증대 · 자신감 및 직무 만족도 향상 · 퍼스널 브랜딩 강화</p></div>
+      <div class="eff"><h3>프랜차이즈 · 매장</h3><p>지점별 매출 동반 상승 · 신규 고객 유입 경로 다각화 · 브랜드 평판 제고 · 핵심 인재 이탈 방지</p></div>
+    </div></div></div><div class="cap">13 · 기대 효과</div></div>
+
+    <!-- 14 closing -->
+    <div class="card"><div class="phone"><div class="screen ink"><div class="pad bottom oi">
+      <div class="k">마치며</div>
+      <div class="title" style="color:var(--cream)">디자이너 한 명 한 명이<br><span style="color:var(--gold-l)">움직이는 광고판</span>입니다</div>
+      <div class="lead">"원장님의 성공이 곧 신화클라우드의 성공"이라는 마음으로 최고의 교육을 약속드립니다.</div>
+      <div class="meta" style="margin-top:14px"><b>문의</b> 유웅종 010-8608-2989</div>
+      <div style="margin-top:6px"><span class="cta">📞 상담 문의</span><span class="cta ghost">광고 컨설팅 보기</span></div>
+    </div></div></div><div class="cap"><span class="i">★</span> 14 · 마치며+CTA</div></div>
+
+  </div>
+
+  <div class="foot">
+    실제 인터랙티브 스토리(투표·퀴즈·스와이프업·CTA 동작): <code>style-up-academy.html</code><br>
+    ★ 표시 페이지는 탭/스와이프로 직접 참여하는 인터랙티브 페이지입니다.
+  </div>
+</body>
+</html>
