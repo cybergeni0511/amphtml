@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>헤어살롱 바오 — 미리보기 (Preview)</title>
+  <!--
+    오프라인 미리보기 / Offline preview.
+    AMP 런타임 없이 디자인만 확인하는 정적 갤러리입니다.
+    실제 동작 스토리는 hair-salon-bao.html 을 AMP Playground 또는 로컬 서버로 보세요.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1815;
+      --cream: #f6efe7;
+      --gold: #c9a25b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #141210;
+      color: var(--cream);
+      font-family: 'Noto Sans KR', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page-head {
+      text-align: center;
+      padding: 48px 20px 8px;
+    }
+    .page-head .kicker {
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--gold);
+    }
+    .page-head h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 900;
+      font-size: 40px;
+      margin: 12px 0 6px;
+    }
+    .page-head p {
+      color: rgba(246,239,231,0.6);
+      font-weight: 300;
+      font-size: 14px;
+      margin: 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 34px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+      justify-items: center;
+    }
+    /* Phone frame, 9:16 */
+    .phone {
+      width: 290px;
+      height: 515px;
+      border-radius: 34px;
+      padding: 10px;
+      background: linear-gradient(160deg, #2a2521, #100d0b);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 26px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-color: #2b2622;
+      display: flex;
+    }
+    .screen::after { /* notch */
+      content: "";
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 90px; height: 20px;
+      background: #100d0b;
+      border-radius: 0 0 14px 14px;
+      z-index: 5;
+    }
+    .scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(20,16,13,0.15) 0%, rgba(20,16,13,0.55) 55%, rgba(20,16,13,0.92) 100%);
+    }
+    .scrim.top {
+      background: linear-gradient(to bottom,
+        rgba(20,16,13,0.85) 0%, rgba(20,16,13,0.45) 45%, rgba(20,16,13,0.2) 100%);
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .content.bottom { justify-content: flex-end; }
+    .content.center { justify-content: center; align-items: center; text-align: center; }
+    .eyebrow {
+      letter-spacing: 0.36em; text-transform: uppercase;
+      font-size: 10px; font-weight: 500; color: var(--gold); margin-bottom: 10px;
+    }
+    .serif { font-family: 'Noto Serif KR', serif; }
+    .logo { font-family:'Noto Serif KR',serif; font-weight:900; font-size:62px; line-height:1; }
+    .sub { font-weight:300; font-size:13px; letter-spacing:0.05em; color:rgba(246,239,231,0.85); margin-top:12px; }
+    .title { font-family:'Noto Serif KR',serif; font-weight:900; font-size:27px; line-height:1.22; margin:0; }
+    .rule { width:40px; height:2px; background:var(--gold); margin:14px 0; }
+    .lead { font-size:13px; font-weight:300; color:rgba(246,239,231,0.9); line-height:1.65; margin:0; }
+    .badge { display:inline-block; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+      border:1px solid rgba(246,239,231,0.4); border-radius:999px; padding:5px 11px; margin:4px 4px 0 0; }
+    .row { display:flex; justify-content:space-between; align-items:baseline;
+      padding:10px 0; border-bottom:1px solid rgba(246,239,231,0.16); }
+    .row .name { font-size:14px; font-weight:500; }
+    .row .desc { font-size:10px; font-weight:300; color:rgba(246,239,231,0.6); margin-top:2px; }
+    .row .price { font-family:'Noto Serif KR',serif; font-size:14px; font-weight:600; color:var(--gold); white-space:nowrap; padding-left:10px; }
+    .quote { font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.55; }
+    .quote .mark { color:var(--gold); font-size:28px; line-height:0; }
+    .stylist-name { font-size:22px; font-weight:700; margin:0; }
+    .stylist-role { font-size:11px; color:var(--gold); letter-spacing:0.16em; text-transform:uppercase; margin-top:5px; }
+    .big-num { font-family:'Noto Serif KR',serif; font-weight:900; font-size:54px; color:var(--gold); line-height:1; margin:0; }
+    .info { font-size:13px; font-weight:300; margin:7px 0; color:rgba(246,239,231,0.92); }
+    .info b { display:block; font-weight:600; color:var(--gold); letter-spacing:0.1em;
+      font-size:9px; text-transform:uppercase; margin-bottom:1px; }
+    .cta { display:inline-block; margin-top:18px; padding:11px 26px; background:var(--gold);
+      color:var(--ink); font-weight:700; font-size:13px; letter-spacing:0.06em; border-radius:999px; }
+    .cap { margin-top:14px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,239,231,0.45); text-align:center; }
+    .card { display:flex; flex-direction:column; align-items:center; }
+    .foot { text-align:center; color:rgba(246,239,231,0.4); font-size:12px; padding:0 20px 56px; line-height:1.8; }
+    .foot code { color:var(--gold); font-family:monospace; }
+  </style>
+</head>
+<body>
+  <div class="page-head">
+    <div class="kicker">Preview · 미리보기</div>
+    <h1 class="serif">헤어살롱 바오</h1>
+    <p>BAO HAIR SALON — 웹스토리 7페이지 디자인 미리보기</p>
+  </div>
+
+  <div class="gallery">
+
+    <!-- 1. Cover -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content center">
+          <div class="eyebrow">Premium Hair Studio</div>
+          <div class="logo">바오</div>
+          <div class="sub">BAO HAIR SALON</div>
+          <div class="sub" style="margin-top:6px">당신의 하루를 빛내는 스타일</div>
+        </div>
+      </div></div>
+      <div class="cap">01 · Cover</div>
+    </div>
+
+    <!-- 2. About -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content bottom">
+          <div class="eyebrow">About BAO</div>
+          <h2 class="title">머리카락 한 올까지<br>당신을 닮은 디자인</h2>
+          <div class="rule"></div>
+          <p class="lead">바오는 유행을 따르기보다 당신의 얼굴형, 모질, 라이프스타일에서 시작합니다. 충분한 상담과 정성스러운 손길로 가장 어울리는 모습을 찾아드립니다.</p>
+        </div>
+      </div></div>
+      <div class="cap">02 · About</div>
+    </div>
+
+    <!-- 3. Services -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=1067&fit=crop')">
+        <div class="scrim top"></div>
+        <div class="content">
+          <div class="eyebrow">Signature Menu</div>
+          <h2 class="title">시그니처 시술</h2>
+          <div style="margin-top:10px">
+            <span class="badge">디자인 컷</span><span class="badge">볼륨 펌</span>
+            <span class="badge">컬러 염색</span><span class="badge">두피 클리닉</span>
+            <span class="badge">웨딩 업스타일</span>
+          </div>
+        </div>
+      </div></div>
+      <div class="cap">03 · Services</div>
+    </div>
+
+    <!-- 4. Pricing -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content center">
+          <div class="eyebrow">Price Guide</div>
+          <h2 class="title" style="margin-bottom:12px">가격 안내</h2>
+          <div style="width:100%;text-align:left">
+            <div class="row"><div><div class="name">디자인 컷</div><div class="desc">상담·샴푸·스타일링 포함</div></div><div class="price">30,000~</div></div>
+            <div class="row"><div><div class="name">볼륨 매직 / 펌</div><div class="desc">모발 길이별 상이</div></div><div class="price">120,000~</div></div>
+            <div class="row"><div><div class="name">전체 염색 · 컬러</div><div class="desc">트리트먼트 포함</div></div><div class="price">90,000~</div></div>
+            <div class="row"><div><div class="name">두피·모발 클리닉</div><div class="desc">10회 패키지 할인</div></div><div class="price">60,000~</div></div>
+          </div>
+          <p class="lead" style="margin-top:12px;font-size:11px">* 신규 고객 첫 방문 시 전 메뉴 15% 할인</p>
+        </div>
+      </div></div>
+      <div class="cap">04 · Pricing</div>
+    </div>
+
+    <!-- 5. Stylist -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content bottom">
+          <p class="quote"><span class="mark">“</span>한 분 한 분의 모발을 읽고,<br>가장 오래 예쁜 스타일을 설계합니다.<span class="mark">”</span></p>
+          <div class="rule"></div>
+          <p class="stylist-name">원장 바오</p>
+          <p class="stylist-role">Director · 15Y Experience</p>
+        </div>
+      </div></div>
+      <div class="cap">05 · Stylist</div>
+    </div>
+
+    <!-- 6. Promise -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1554519515-242161756769?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content center">
+          <p class="big-num">4.9★</p>
+          <h2 class="title" style="font-size:21px;margin-top:8px">2,400여 분의 단골</h2>
+          <p class="lead" style="text-align:center;margin-top:8px">재방문율 92%. 바오를 한 번 경험한 고객은 다시 바오를 찾습니다.</p>
+        </div>
+      </div></div>
+      <div class="cap">06 · Social Proof</div>
+    </div>
+
+    <!-- 7. Visit / CTA -->
+    <div class="card">
+      <div class="phone"><div class="screen"
+        style="background-image:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&h=1067&fit=crop')">
+        <div class="scrim"></div>
+        <div class="content bottom">
+          <div class="eyebrow">Visit Us</div>
+          <h2 class="title" style="margin-bottom:12px">예약하고 만나요</h2>
+          <p class="info"><b>Address</b>서울 강남구 가로수길 24, 2F</p>
+          <p class="info"><b>Hours</b>화–일 10:00 – 20:00 · 월요일 휴무</p>
+          <p class="info"><b>Tel</b>02-1234-5678</p>
+          <span class="cta">📞 전화 예약하기</span>
+        </div>
+      </div></div>
+      <div class="cap">07 · Visit / CTA</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    실제 동작하는 스토리(페이지 넘김·애니메이션·풀스크린): <code>hair-salon-bao.html</code><br>
+    이미지가 안 보이면 인터넷 연결을 확인하세요 (배경은 Unsplash 플레이스홀더입니다).
+  </div>
+</body>
+</html>
